@@ -39,17 +39,6 @@ export class Users2 implements MigrationInterface {
                         default: "now()",
                     },
                     {
-                        name: "updated_at",
-                        type: "timestamp",
-                        default: "now()",
-                        onUpdate: "now()"
-                    },
-                    {
-                        name: "is_active",
-                        type: "boolean",
-                        default: "false",
-                    },
-                    {
                         name: "role_id",
                         type: "int",
                         default: 1

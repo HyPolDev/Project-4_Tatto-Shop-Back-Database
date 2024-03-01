@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "seed": "ts-node ./back/database/deeders/seeder",
     "start": "nodemon ./back/server.ts"
   },
   "keywords": [],
