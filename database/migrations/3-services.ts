@@ -22,8 +22,7 @@ export class Services3 implements MigrationInterface {
                     },
                     {
                         name: "description",
-                        type: "text",
-                        isNullable: false
+                        type: "text"
                     }
                 ]
             }),

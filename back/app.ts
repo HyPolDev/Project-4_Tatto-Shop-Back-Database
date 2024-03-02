@@ -21,15 +21,17 @@ app.get("/healthy", (req, res) => {
     })
 })
 
-app.get("/roles", getRoles)
-app.post("/roles", createRoles)
-app.put("/roles/:id", updateRolesById)
-app.delete("/roles/:id", deleteRolesById)
-
 app.post("/api/auth/register", register)
 app.post("/api/auth/login", login)
 
+// will get commented after seeder is added
+app.get("/roles", auth, isAdmin, getRoles)
+app.post("/roles", auth, isAdmin, createRoles)
+app.put("/roles/:id", auth, isAdmin, updateRolesById)
+app.delete("/roles/:id", deleteRolesById)
+
+
 app.get("/api/users", auth, isAdmin, getUsers)
-app.get("/api/users/:id", isSelfOrAdmin, getUserById)
-app.put("/api/users/:id", isSelfOrAdmin, updateUserById)
-app.delete("/api/users/:id", isSelfOrAdmin, deleteUserById)
+app.get("/api/users/:id", auth, isSelfOrAdmin, getUserById)
+app.put("/api/users/:id", auth, isSelfOrAdmin, updateUserById)
+app.delete("/api/users/:id", auth, isSelfOrAdmin, deleteUserById)

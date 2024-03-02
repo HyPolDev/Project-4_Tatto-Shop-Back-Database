@@ -104,7 +104,7 @@ export const login = async (req: Request, res: Response) => {
         },
             `${process.env.JWT_SECRET}`,
             {
-                expiresIn: "2h"
+                expiresIn: "24h"
             }
         )
 
@@ -118,7 +118,7 @@ export const login = async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json({
             succes: false,
-            message: "User could be logged in",
+            message: "User couldn't be logged in",
             error: error
         })
     }

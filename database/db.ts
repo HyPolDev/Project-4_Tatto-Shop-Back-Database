@@ -5,6 +5,10 @@ import { Roles1 } from "./migrations/1-roles"
 import { Users2 } from "./migrations/2-users"
 import { Role } from "../back/models/Role"
 import { User } from "../back/models/User"
+import { Services3 } from "./migrations/3-services"
+import { Appointments4 } from "./migrations/4-appointments"
+import { Service } from "../back/models/Service"
+import { Appointment } from "../back/models/Appointment"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -13,8 +17,8 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USER || "root",
     password: process.env.DB_ROOT_PASSWORD || "",
     database: process.env.DB_Database || "",
-    entities: [Role, User],
-    migrations: [Roles1, Users2],
+    entities: [Role, User, Service, Appointment],
+    migrations: [Roles1, Users2, Services3, Appointments4],
     synchronize: false,
     logging: false,
 })
