@@ -2,14 +2,15 @@ import express, { Application } from "express"
 import 'dotenv/config'
 import { createRoles, deleteRolesById, getRoles, updateRolesById } from "./controllers/roleController"
 import { login, register } from "./controllers/authController"
-import { deleteUserById, getUserById, getUsers, updateUserById } from "./controllers/userController"
+import { deleteUserById, getUserByEmail, getUserById, getUsers, updateUserById, updateUserRole } from "./controllers/userController"
 import { auth } from "./middleware/auth"
 import { isAdmin } from "./middleware/isAdmin"
 import { isSelfOrAdmin } from "./middleware/isSelfOrAdmin"
+import { deleteServiceId, getServices, postServices, putServiceId } from "./controllers/serviceController"
+import { deleteAppointmentId, getAppointmentId, getAppointments, postAppointments, putAppointmentId } from "./controllers/appointmentController"
 
 export const app: Application = express()
 
-//lo de abajo lo que hace es parsearlo y pasarlo a objeto
 app.use(express.json())
 
 const PORT = process.env.PORT || 4000
@@ -28,10 +29,25 @@ app.post("/api/auth/login", login)
 app.get("/roles", auth, isAdmin, getRoles)
 app.post("/roles", auth, isAdmin, createRoles)
 app.put("/roles/:id", auth, isAdmin, updateRolesById)
-app.delete("/roles/:id", deleteRolesById)
+app.delete("/roles/:id", auth, isAdmin, deleteRolesById)
 
-
-app.get("/api/users", auth, isAdmin, getUsers)
-app.get("/api/users/:id", auth, isSelfOrAdmin, getUserById)
-app.put("/api/users/:id", auth, isSelfOrAdmin, updateUserById)
+// USER
+app.get("/api/users", auth, isAdmin, getUsers)  //get all users
+app.get("/api/users/:email", auth, isAdmin, getUserByEmail)//get by email lh:4000/api/users?email=a@a.a
+app.get("/api/users/:id", auth, isSelfOrAdmin, getUserById) //get user by id
+app.put("/api/users/:id", auth, isSelfOrAdmin, updateUserById) //update user
 app.delete("/api/users/:id", auth, isSelfOrAdmin, deleteUserById)
+app.put("/api/users/:id/:role", auth, isAdmin, updateUserRole)
+
+//Services
+app.post("/api/services", auth, isAdmin, postServices)
+app.get("/api/services", auth, isAdmin, getServices)
+app.put("/api/services/:id", auth, isAdmin, putServiceId)
+app.delete("/api/services/:id", auth, isAdmin, deleteServiceId)
+
+//Appointments
+app.post("/api/appointments", auth, postAppointments)
+app.get("/api/appointments", auth, isAdmin, getAppointments) //
+app.get("/api/appointments/:id", auth, getAppointmentId)
+app.put("/api/appointments/:id", auth, putAppointmentId)
+app.delete("/api/appointments/:id", auth, deleteAppointmentId) 

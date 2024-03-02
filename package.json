@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed": "ts-node ./back/database/deeders/seeder",
     "start": "nodemon ./back/server.ts",
     "migrations": "typeorm-ts-node-commonjs migration:run -d ./database/db.ts",
-    "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./src/database/db.ts"
+    "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./database/db.ts",
+    "seed-roles": "ts-node ./database/seeders/roleSeeder.ts",
+    "seed-users": "ts-node ./database/seeders/userSeeder.ts",
+    "seed-services": "ts-node ./database/seeders/serviceSeeder.ts",
+    "seed-appointments": "ts-node ./database/seeders/appointmentSeeder.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +26,7 @@
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
