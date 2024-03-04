@@ -10,7 +10,9 @@
     "seed-roles": "ts-node ./src/database/seeders/roleSeeder.ts",
     "seed-users": "ts-node ./src/src/database/seeders/userSeeder.ts",
     "seed-services": "ts-node ./src/database/seeders/serviceSeeder.ts",
-    "seed-appointments": "ts-node ./src/database/seeders/appointmentSeeder.ts"
+    "seed-appointments": "ts-node ./src/database/seeders/appointmentSeeder.ts",
+    "build": "tsc",
+    "start": "node ./dist/env/back/server"
   },
   "keywords": [],
   "author": "",
