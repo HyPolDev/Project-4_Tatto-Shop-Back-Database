@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./back/server.ts",
-    "migrations": "typeorm-ts-node-commonjs migration:run -d ./database/db.ts",
-    "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./database/db.ts",
-    "seed-roles": "ts-node ./database/seeders/roleSeeder.ts",
-    "seed-users": "ts-node ./database/seeders/userSeeder.ts",
-    "seed-services": "ts-node ./database/seeders/serviceSeeder.ts",
-    "seed-appointments": "ts-node ./database/seeders/appointmentSeeder.ts"
+    "dev": "nodemon ./src/back/server.ts",
+    "migrations": "typeorm-ts-node-commonjs migration:run -d ./src/database/db.ts",
+    "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./src/database/db.ts",
+    "seed-roles": "ts-node ./src/database/seeders/roleSeeder.ts",
+    "seed-users": "ts-node ./src/src/database/seeders/userSeeder.ts",
+    "seed-services": "ts-node ./src/database/seeders/serviceSeeder.ts",
+    "seed-appointments": "ts-node ./src/database/seeders/appointmentSeeder.ts"
   },
   "keywords": [],
   "author": "",

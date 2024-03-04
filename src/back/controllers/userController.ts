@@ -3,6 +3,9 @@ import { User } from "../models/User"
 
 export const getUsers = async (req: Request, res: Response) => {
     try {
+
+        const limit = Number(req.query.limit) || 10
+
         const users = await User.find(
             {
                 select: {
@@ -10,7 +13,8 @@ export const getUsers = async (req: Request, res: Response) => {
                     name: true,
                     email: true,
                     createdAt: true,
-                }
+                },
+                take: limit as number
             }
         )
 
