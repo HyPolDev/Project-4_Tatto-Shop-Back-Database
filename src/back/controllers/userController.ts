@@ -142,6 +142,8 @@ export const updateUserById = async (req: Request, res: Response) => {
     }
 }
 
+
+
 export const deleteUserById = async (req: Request, res: Response) => {
     try {
 
