@@ -8,7 +8,7 @@
     "migrations": "typeorm-ts-node-commonjs migration:run -d ./src/database/db.ts",
     "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./src/database/db.ts",
     "seed-roles": "ts-node ./src/database/seeders/roleSeeder.ts",
-    "seed-users": "ts-node ./src/src/database/seeders/userSeeder.ts",
+    "seed-users": "ts-node ./src/database/seeders/userSeeder.ts",
     "seed-services": "ts-node ./src/database/seeders/serviceSeeder.ts",
     "seed-appointments": "ts-node ./src/database/seeders/appointmentSeeder.ts",
     "build": "tsc",
