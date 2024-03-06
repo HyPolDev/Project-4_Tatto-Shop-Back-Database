@@ -41,7 +41,7 @@ app.put("/api/users/:id/:role", auth, isAdmin, updateUserRole)
 
 //Services
 app.post("/api/services", auth, isAdmin, postServices)
-app.get("/api/services", auth, isAdmin, getServices)
+app.get("/api/services", auth, getServices)
 app.put("/api/services/:id", auth, isAdmin, putServiceId)
 app.delete("/api/services/:id", auth, isAdmin, deleteServiceId)
 
