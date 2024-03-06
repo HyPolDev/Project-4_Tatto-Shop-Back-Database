@@ -2,7 +2,7 @@
 
 ¡Welcome all to my appointment website backend reporsitory! This the fourth project at GeeksHubs Academy, consisting in the back and database code of an appointment site, in this case a tatto shop.
 
-<img src="./img/readmeIMG.jpeg" alt="gif_page" style="height: 20em ; width: 30em; left: 1em; transition: 0.7s">
+<img src="./src/img/DBimg.png" alt="gif_page" style="height: 20em ; width: 30em; left: 1em; transition: 0.7s">
 
 
 ## 🛠️ Tech&Tolls used 
@@ -14,6 +14,7 @@
 
 <ol>
  <details>
+ To be able to have the container to properly run the database localy you shall need to have docker.
   <summary style="padding-left:1px; font-weight:bolder">1. INSTALL DOCKER</summary>
  
   <ol>
