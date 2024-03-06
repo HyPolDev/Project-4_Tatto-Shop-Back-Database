@@ -264,5 +264,7 @@ app.get("/healthy", (req, res) => {
 ## 📄 Add Ons - Bugs and Dreams
 
 - Token storage is null, i'll change it to WebStorage at some point.
-- I'd like to add a saple front end side for testing porpuses.
+- I'd like to add a sample front end side for testing porpuses.
+- The appointment controller should only create an appointment for self
+- The appointment controller should validate for a valid appointment date
 
