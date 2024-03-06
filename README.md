@@ -185,6 +185,7 @@ app.get("/healthy", (req, res) => {
   <summary style="font-weight:bolder" >6. ROUTES</summary>
 
 - We create routes (in `app.ts`) for CRUD (create, read, update and delete) database records.
+<img src="./src/img/routes.png" alt="gif_page" style="height: 20em ; width: 30em; left: 1em; transition: 0.7s">
 
 </details>
 
@@ -192,7 +193,6 @@ app.get("/healthy", (req, res) => {
   <summary style="font-weight:bolder" >7. MIDDLEWARE: AUTHENTICATOR</summary>
   
   - Additionally we need to control access to our data. We will use 'middleware' functions.
-  <img src="./src/img/middlewares.png/" style="border-radius:15px;width:50%">
 
 - Auth`(authorization system based on TOKENs) will block anything that should not be seen by the general public. In our case, it only does not affect`register`, `login`and`getServices` (since those are the endpoints accessible without logging in).
 - The `auth()` function verifies an encrypted TOKEN created automatically at login. With an active token we have access to other data.
