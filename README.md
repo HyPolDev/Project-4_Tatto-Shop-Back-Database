@@ -2,7 +2,7 @@
 
 ¡Welcome all to my appointment website backend reporsitory! This the fourth project at GeeksHubs Academy, consisting in the back and database code of an appointment site, in this case a tatto shop.
 
-<img src="./src/img/DBimg.png" alt="gif_page" style="height: 20em ; width: 30em; left: 1em; transition: 0.7s">
+<img src="./src/img/DBimg.png" alt="gif_page" style="height: 10em ; width: 30em; left: 1em; transition: 0.7s">
 
 
 ## 🛠️ Tech&Tolls used 
