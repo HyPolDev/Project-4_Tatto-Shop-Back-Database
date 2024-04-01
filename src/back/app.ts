@@ -1,5 +1,6 @@
 import express, { Application } from "express"
 import 'dotenv/config'
+import cors from 'cors'
 import { createRoles, deleteRolesById, getRoles, updateRolesById } from "./controllers/roleController"
 import { login, register } from "./controllers/authController"
 import { deleteUserById, getUserByEmail, getUserById, getUsers, updateUserById, updateUserRole } from "./controllers/userController"
@@ -12,6 +13,7 @@ import { deleteAppointmentId, getAppointmentId, getAppointments, postAppointment
 export const app: Application = express()
 
 app.use(express.json())
+app.use(cors())
 
 const PORT = process.env.PORT || 4000
 
