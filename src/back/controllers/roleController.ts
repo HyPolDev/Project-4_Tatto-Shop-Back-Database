@@ -21,7 +21,7 @@ export const getRoles = async (req: Request, res: Response) => {
     )
   } catch (error) {
     res.status(500).json({
-      succes: false,
+      success: false,
       message: "Could not get roles",
       error: error
     })
@@ -36,7 +36,7 @@ export const createRoles = async (req: Request, res: Response) => {
     //validacion=>
     if (name.length > 50) {
       return res.status(400).json({
-        succes: false,
+        success: false,
         message: "Role name must be under 50 char"
       })
     }
@@ -55,7 +55,7 @@ export const createRoles = async (req: Request, res: Response) => {
 
   } catch (error) {
     res.status(500).json({
-      succes: false,
+      success: false,
       message: "Catch here => error in function",
       error: error
     })
@@ -73,7 +73,7 @@ export const updateRolesById = async (req: Request, res: Response) => {
 
     if (!role) {
       return res.status(404).json({
-        succes: false,
+        success: false,
         message: "Role not found"
       })
     }
@@ -92,7 +92,7 @@ export const updateRolesById = async (req: Request, res: Response) => {
     )
   } catch (error) {
     res.status(500).json({
-      succes: false,
+      success: false,
       message: "Could not update roles",
       error: error
     })
@@ -109,7 +109,7 @@ export const deleteRolesById = async (req: Request, res: Response) => {
 
     if (!roleToRemove) {
       return res.status(404).json({
-        succes: false,
+        success: false,
         message: "Role not found"
       })
     }

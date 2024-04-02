@@ -22,7 +22,7 @@ export const register = async (req: Request, res: Response) => {
 
         if (password.length < 3 || password.length > 20) {
             return res.status(400).json({
-                succes: false,
+                success: false,
                 message: "Password between 3 and 20 characters"
             })
         }
@@ -38,13 +38,13 @@ export const register = async (req: Request, res: Response) => {
         }).save()
 
         return res.status(201).json({
-            succes: true,
+            success: true,
             message: "User created succesfully"
         })
 
     } catch (error) {
         res.status(500).json({
-            succes: false,
+            success: false,
             message: "User couldn't be registered",
             error: error
         })
@@ -58,7 +58,7 @@ export const login = async (req: Request, res: Response) => {
 
         if (!email || !password) {
             res.status(400).json({
-                succes: false,
+                success: false,
                 message: "Credentials needed"
             })
         }
@@ -73,6 +73,7 @@ export const login = async (req: Request, res: Response) => {
             select: {
                 id: true,
                 password: true,
+                name: true,
                 role: {
                     id: true,
                     name: true
@@ -82,7 +83,7 @@ export const login = async (req: Request, res: Response) => {
 
         if (!user) {
             res.status(500).json({
-                succes: false,
+                success: false,
                 message: "User not found",
             })
         }
@@ -91,7 +92,7 @@ export const login = async (req: Request, res: Response) => {
 
         if (!isValidPassword) {
             return res.status(400).json({
-                succes: false,
+                success: false,
                 message: "User could not be loged in",
 
             })
@@ -100,16 +101,17 @@ export const login = async (req: Request, res: Response) => {
         //create token
         const token = jwt.sign({
             userId: user.id,
-            roleName: user.role.name
+            roleName: user.role.name,
+            userName: user.name
         },
             `${process.env.JWT_SECRET}`,
             {
                 expiresIn: "24h"
             }
         )
-
+        console.log(user, token);
         res.status(200).json({
-            succes: true,
+            success: true,
             message: "User logged",
             data: user,
             token: token
@@ -117,7 +119,7 @@ export const login = async (req: Request, res: Response) => {
 
     } catch (error) {
         res.status(500).json({
-            succes: false,
+            success: false,
             message: "User couldn't be logged in",
             error: error
         })

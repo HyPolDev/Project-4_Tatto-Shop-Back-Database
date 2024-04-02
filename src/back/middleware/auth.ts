@@ -7,7 +7,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
 
     if (!token) {
         return res.status(401).json({
-            succes: false,
+            success: false,
             message: "Token needed"
         })
     }
@@ -23,7 +23,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
 
     } catch (error) {
         return res.status(500).json({
-            succes: false,
+            success: false,
             message: "Not valid token"
         })
     }

@@ -19,14 +19,14 @@ export const getUsers = async (req: Request, res: Response) => {
         )
 
         res.status(200).json({
-            succes: true,
+            success: true,
             message: "user can be retrieved",
             data: users
         })
     }
     catch (error) {
         res.status(500).json({
-            succes: false,
+            success: false,
             message: "users cant be retrieved"
         })
     }
@@ -43,19 +43,19 @@ export const getUserById = async (req: Request, res: Response) => {
 
         if (!user) {
             return res.status(404).json({
-                succes: false,
+                success: false,
                 message: "user not found",
             })
         }
 
         res.status(200).json({
-            succes: true,
+            success: true,
             message: "user retrieved",
             data: user
         })
     } catch (error) {
         res.status(500).json({
-            succes: false,
+            success: false,
             message: "user couldn't be retrieved",
             error: error
         })
@@ -115,7 +115,7 @@ export const updateUserById = async (req: Request, res: Response) => {
 
         if (!user) {
             return res.status(404).json({
-                succes: false,
+                success: false,
                 message: "user not found",
             })
         }
@@ -128,14 +128,14 @@ export const updateUserById = async (req: Request, res: Response) => {
         )
 
         res.status(200).json({
-            succes: true,
+            success: true,
             message: "user updated correctly",
             data: user
         })
     }
     catch (error) {
         res.status(500).json({
-            succes: false,
+            success: false,
             message: "user couldnt be retrieved",
             error: error
         })
@@ -155,7 +155,7 @@ export const deleteUserById = async (req: Request, res: Response) => {
 
         if (!userToRemove) {
             return res.status(404).json({
-                succes: false,
+                success: false,
                 message: "user not found",
             })
         }
@@ -163,14 +163,14 @@ export const deleteUserById = async (req: Request, res: Response) => {
         const userDeleted = await User.remove(userToRemove)
 
         res.status(200).json({
-            succes: true,
+            success: true,
             message: "user removed succesfuly",
             data: userDeleted
         })
 
     } catch (error) {
         res.status(500).json({
-            succes: false,
+            success: false,
             message: "user could be retrieved",
             error: error
         })
