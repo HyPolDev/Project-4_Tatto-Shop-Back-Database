@@ -3,14 +3,25 @@ import { Appointment } from "../models/Appointment"
 
 export const postAppointments = async (req: Request, res: Response) => {
     try {
-        const { appointment_date, user_id, service_id } = req.body
+        let { appointment_date, service_id } = req.body
+        const userId = req.tokenData.userId.toString()
 
+        const services = [
+            "tatuajes personalizados",
+            "tatuajes de catalogo",
+            "restauración",
+            "piercings y dilataciones",
+            "venta"
+        ]
+        service_id = (services.indexOf(service_id) + 1).toString()
+        console.log("1");
+        console.log(service_id);
         const newAppointment = await Appointment.create({
             appointmentDate: appointment_date,
-            userId: user_id,
+            userId: userId,
             serviceId: service_id
         }).save()
-
+        console.log("2");
         res.status(201).json({
             success: true,
             message: "Service created successfully",
@@ -41,9 +52,9 @@ export const getAppointments = async (req: Request, res: Response) => {
                 appointmentDate: true,
                 userId: true,
                 serviceId: true
-            },
-            take: limit as number,
-            skip: skip
+            }//,
+            //take: limit as number,
+            //skip: skip
         });
 
         res.status(200).json({

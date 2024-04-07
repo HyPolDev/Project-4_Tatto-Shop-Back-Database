@@ -35,21 +35,21 @@ app.delete("/roles/:id", auth, isAdmin, deleteRolesById)
 
 // USER
 app.get("/api/users", auth, isAdmin, getUsers)  //get all users
-app.get("/api/users/:email", auth, isAdmin, getUserByEmail)//get by email lh:4000/api/users?email=a@a.a
 app.get("/api/users/:id", auth, isSelfOrAdmin, getUserById) //get user by id
+app.get("/api/users/:email", auth, isAdmin, getUserByEmail)//get by email lh:4000/api/users?email=a@a.a
 app.put("/api/users/:id", auth, isSelfOrAdmin, updateUserById) //update user
 app.delete("/api/users/:id", auth, isSelfOrAdmin, deleteUserById)
 app.put("/api/users/:id/:role", auth, isAdmin, updateUserRole)
 
 //Services
 app.post("/api/services", auth, isAdmin, postServices)
-app.get("/api/services", auth, getServices)
+app.get("/api/services", getServices)
 app.put("/api/services/:id", auth, isAdmin, putServiceId)
 app.delete("/api/services/:id", auth, isAdmin, deleteServiceId)
 
 //Appointments
 app.post("/api/appointments", auth, postAppointments)
-app.get("/api/appointments", auth, isAdmin, getAppointments) //
+app.get("/api/appointments", auth, getAppointments) //
 app.get("/api/appointments/:id", auth, getAppointmentId)
 app.put("/api/appointments/:id", auth, putAppointmentId)
 app.delete("/api/appointments/:id", auth, deleteAppointmentId) 

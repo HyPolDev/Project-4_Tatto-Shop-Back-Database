@@ -55,14 +55,12 @@ export const login = async (req: Request, res: Response) => {
     try {
         const email = req.body.email
         const password = req.body.password
-
         if (!email || !password) {
             res.status(400).json({
                 success: false,
                 message: "Credentials needed"
             })
         }
-
         const user: any = await User.findOne({
             where: {
                 email: email
@@ -80,7 +78,6 @@ export const login = async (req: Request, res: Response) => {
                 }
             }
         })
-
         if (!user) {
             res.status(500).json({
                 success: false,
@@ -109,7 +106,6 @@ export const login = async (req: Request, res: Response) => {
                 expiresIn: "24h"
             }
         )
-        console.log(user, token);
         res.status(200).json({
             success: true,
             message: "User logged",
